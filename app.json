@@ -2,15 +2,15 @@
   "name": "JayBee Subtitle Bot",
   "description": "Telegram bot to download subtitle for movies and tv shows",
   "logo" : "https://telegra.ph/file/05bae0725724007c72fa1.jpg",
-  "success_url" : "https://t.me/JayBeeBots",
+  "success_url" : "https://t.me/MustaxProject",
   "keywords": [
     "telegram",
     "bot",
     "subtitle",
     "jaybee"
   ],
-  "repository": "https://github.com/TerminalWarlord/Subtitle-Downloader-Bot",
-  "website": "https://github.com/TerminalWarlord/Subtitle-Downloader-Bot",
+  "repository": "https://github.com/birdfromhell/Subscene-Unofficial-Bot",
+  "website": "https://github.com/birdfromhell",
   "env": {
     "BOT_TOKEN": {
       "description": "Your bot Bot Token, get this value from @BotFather.",

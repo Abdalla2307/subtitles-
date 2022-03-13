@@ -2,7 +2,6 @@
 # license found at https://github.com/TerminalWarlord/Subtitle-Downloader-Bot/blob/master/LICENSE
 # Encoding = 'utf-8'
 # Fork and Deploy, do not modify this repo and claim it yours
-# For collaboration mail me at dev.jaybee@gmail.com
 
 
 from pyrogram import Client, filters
@@ -30,10 +29,10 @@ timestarted = timedelta(seconds=int(time.time()))
 
 @app.on_message(filters.command('start'))
 def start(client,message):
-    kb = [[InlineKeyboardButton('Channel 🛡', url="https://t.me/JayBeeBots"),InlineKeyboardButton('Support Group 🔰', url="https://t.me/JayBeeBotsSupport")]]
+    kb = [[InlineKeyboardButton('Channel 🛡', url="https://t.me/MustaxProject"),InlineKeyboardButton('Source Code 🔰', url="https://t.me/BIRD_from_HELL")]]
     reply_markup = InlineKeyboardMarkup(kb)
-    app.send_message(chat_id=message.from_user.id, text=f"Hello there, I am a __**Subtitle Downloader Bot**__.\nGive me a Movie/Series name and I will fetch it from __**Subscene**__.\n\n"
-                                                        "__**Developer :**__ __@JayBeeDev__\n"
+    app.send_message(chat_id=message.from_user.id, text=f"Hello , Saya Adalah__**Subtitle Downloader Bot**__.\nBerikan Saya Judul Movie/Series Dan akan Saya ambil dari __**Subscene**__.\n\n"
+"/help For More\n"                                        "__**Developer :**__ __@JayBeeDev__\n"
                                                         "__**Language :**__ __Python__\n"
                                                         "__**Framework :**__ __🔥 Pyrogram__",
                      parse_mode='md',
@@ -41,13 +40,13 @@ def start(client,message):
 
 @app.on_message(filters.command('help'))
 def help(client,message):
-    url = [[InlineKeyboardButton(f"PayPal Me ❤️", url=f"https://paypal.me/JayBeeDev")],
-           [InlineKeyboardButton(f"Buy Me A Coffee ☕️", url=f"https://buymeacoffee.com/JayBee.Dev")]]
+    url = [[InlineKeyboardButton(f"Saweria.co ❤️", url=f"https://saweria.co/MustaxProject")],
+           [InlineKeyboardButton(f"Trakteer Me☕️", url=f"https://trakteer.id/mustaxproject")]]
     reply_markup = InlineKeyboardMarkup(url)
-    message.reply_text(reply_to_message_id= message.message_id,text=f"Send me any Movie/Series name and I will -\n"
-    f"__ * Search for it on `Subscene.com`\n"
-    f" * Let you choose your preferable language.\n"
-    f" * Download the subtitle, unzip and upload in `.srt/.ass` format__", parse_mode='md', reply_markup=reply_markup)
+    message.reply_text(reply_to_message_id= message.message_id,text=f"Kirim Saya Judul Film/Series Tanpa Tahun Rilis -\n"
+    f"__ * Saya Cari Di `Subscene.com`\n"
+    f" * Pilih Bahasa Nya.\n"
+    f" * Subtitle Akan Saya Download ,Dan di unzip N  upload Sebagai `.srt/.ass` format__\n\nDONASI DI BAWAH ❤️", parse_mode='md', reply_markup=reply_markup)
 
 
 @app.on_message(filters.command('uptime'))
@@ -89,8 +88,8 @@ def search(client, message):
         kb.append([InlineKeyboardButton(f"Next ⏭", callback_data=f'SRCNX*{i}*{query}')])
     reply_markup = InlineKeyboardMarkup(kb)
     app.send_message(chat_id=message.chat.id,
-                     text=f"__Showing Result for **{query}**\n"
-                     f"Choose your desired Movie/Series:__",
+                     text=f"__Hasil Dari Pencarian **{query}**\n"
+                     f"Pilih Judul Movie/Series:__",
                      parse_mode='md',
                      reply_markup=reply_markup)
 
@@ -178,7 +177,7 @@ def chooselang(client, callback_query):
     reply_markup = InlineKeyboardMarkup(kb)
     app.edit_message_text(chat_id=callback_query.message.chat.id,
                           message_id=callback_query.message.message_id,
-                          text=f"__Select a Subtitle Language__",
+                          text=f"__Pilih Bahasa Subtitle__",
                           parse_mode='md',
                           reply_markup=reply_markup)
 
@@ -222,8 +221,8 @@ def langset(client, callback_query):
     except:
         app.edit_message_text(chat_id=callback_query.message.chat.id,
                               message_id=callback_query.message.message_id,
-                              text=f"__Sorry no subtitle available for that specific language!\n"
-                              f"Try another one!__",
+                              text=f"__Maaf Tidak Ada Subtitle Dalam Bahasa anda!\n"
+                              f"Coba yang Lain!__",
                               parse_mode='md')
 
 
@@ -235,7 +234,7 @@ def subdetails(client, callback_query):
     kb = []
     # getsub
     url = f'https://subscene.com/subtitles/{suburl}/{language}/{subid}'
-    callback_query.answer(f"Getting sub from : {url}", show_alert=False)
+    callback_query.answer(f"Mengambil Subtitle Dari : {url}", show_alert=False)
     r = requests.get(url)
     soup = bs(r.text, 'html.parser')
     poster = soup.find('div', {'class': 'poster'}).find('img').attrs['src'].replace('154-', '')
