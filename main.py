@@ -32,7 +32,7 @@ def start(client,message):
     kb = [[InlineKeyboardButton('Channel 🛡', url="https://t.me/MustaxProject"),InlineKeyboardButton('Source Code 🔰', url="https://t.me/BIRD_from_HELL")]]
     reply_markup = InlineKeyboardMarkup(kb)
     app.send_message(chat_id=message.from_user.id, text=f"Hello , Saya Adalah__**Subtitle Downloader Bot**__.\nBerikan Saya Judul Movie/Series Dan akan Saya ambil dari __**Subscene**__.\n\n"
-"/help For More\n"                                        "__**Developer :**__ __@JayBeeDev__\n"
+"/help For More\n"                                        "__**Developer :**__ __@BIRD_from_HELL__\n"
                                                         "__**Language :**__ __Python__\n"
                                                         "__**Framework :**__ __🔥 Pyrogram__",
                      parse_mode='md',
